@@ -1,0 +1,49 @@
+NAME
+    Socket::AcceptFilter - Set FreeFSD SO_ACCEPTFILTER
+
+VERSION
+    Version 0.01
+
+SYNOPSIS
+    Quick summary of what the module does.
+
+    Perhaps a little code snippet.
+
+        use Socket::AcceptFilter;
+
+    my $socket = ...;
+        listen($socket);
+        accept_filter($socket,'httpready'); # FreeBSD only
+        # or
+        accept_filter($socket,'dataready'); # FreeBSD/Linux
+
+EXPORT
+    A list of functions that can be exported. You can delete this section if
+    you don't export anything, such as for a purely object-oriented module.
+
+FUNCTIONS
+  accept_filter
+AUTHOR
+    Mons Anderson, "<mons at cpan.org>"
+
+SUPPORT
+    You can find documentation for this module with the perldoc command.
+
+        perldoc Socket::AcceptFilter
+
+    You can also look for information at:
+
+    *   RT: CPAN's request tracker
+
+        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=Socket-AcceptFilter>
+
+    *   Search CPAN
+
+        <http://search.cpan.org/dist/Socket-AcceptFilter/>
+
+COPYRIGHT & LICENSE
+    Copyright 2009 Mons Anderson, all rights reserved.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
