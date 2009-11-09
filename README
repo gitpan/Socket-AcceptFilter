@@ -2,7 +2,7 @@ NAME
     Socket::AcceptFilter - Set FreeFSD SO_ACCEPTFILTER
 
 VERSION
-    Version 0.01
+    Version 0.02
 
 SYNOPSIS
     Quick summary of what the module does.

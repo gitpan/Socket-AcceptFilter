@@ -7,7 +7,7 @@ use inc::Module::Install;
 
 name     'Socket-AcceptFilter';
 all_from 'lib/Socket/AcceptFilter.pm';
-version   my $v = '0.01';
+version   my $v = '0.02';
 author   'Mons Anderson <mons@cpan.org>';
 license  'perl';
 

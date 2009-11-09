@@ -19,6 +19,7 @@ if ($^O eq 'freebsd') {
 	ok accept_filter($fh,'dataready');
 }
 elsif ($^O eq 'linux') {
+	plan tests => 1;
 	ok accept_filter($fh,'dataready');
 }
 else {
