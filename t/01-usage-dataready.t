@@ -16,7 +16,16 @@ listen $fh,10 or plan skip_all => "listen failed: $!";
 
 if ($^O eq 'freebsd') {
 	plan tests => 1;
-	ok accept_filter($fh,'dataready');
+	SKIP:{
+		my $rc = accept_filter($fh,'dataready');
+		if(!$rc) {
+			my $mod = 'accf_data';
+			my $res = `/sbin/kldstat -m $mod`;
+			!$res and $! and skip "failed to call kldstat: $!", 1;
+			$res =~ /\d+\s+\d+\s+$mod/s or skip "$mod not loaded", 1;
+		}
+		ok $rc, 'freebsd dataready';
+	}
 }
 elsif ($^O eq 'linux') {
 	plan tests => 1;

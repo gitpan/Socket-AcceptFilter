@@ -12,21 +12,17 @@ our @EXPORT = qw(accept_filter);
 
 =head1 NAME
 
-Socket::AcceptFilter - Set FreeFSD SO_ACCEPTFILTER
+Socket::AcceptFilter - Set sockopt httpready/dataready on FreeBSD and Linux
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 SYNOPSIS
-
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
 
     use Socket::AcceptFilter;
     
@@ -36,14 +32,9 @@ Perhaps a little code snippet.
     # or
     accept_filter($socket,'dataready'); # FreeBSD/Linux
 
-=head1 EXPORT
-
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
-
 =head1 FUNCTIONS
 
-=head2 accept_filter
+=head2 accept_filter ($sock, $name)
 
 =cut
 
@@ -67,7 +58,7 @@ sub accept_filter ($$;$) {
 	}
 	elsif ($name eq 'dataready' and $^O eq 'linux') {
 		my $rc = setsockopt
-			$fh, IPPROTO_TCP, 9 , 1
+			$fh, IPPROTO_TCP, 9, 1
 			or carp "accept_filter($name) failed: ".({ reverse %! }->{0+$!}).": $!";
 		return $rc;
 	}
